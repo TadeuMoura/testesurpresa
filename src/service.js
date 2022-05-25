@@ -31,6 +31,14 @@ export function temperatura (x){
     return msg;
 }
 
+export function cor (a){
+    let msg =true;
+    if (a=='amarelo'||a=='amarela'||a=='vermelho'||a=='vermelha'||a=='azul'){msg=true;}
+    else{msg=false}
+
+    return msg;
+}
+
 export function cinema (inteiras,meias,dia){
     let valor=0;
 
