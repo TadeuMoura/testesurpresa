@@ -31,3 +31,12 @@ export function temperatura (x){
     return msg;
 }
 
+export function cinema (inteiras,meias,dia){
+    let valor=0;
+
+    if(dia==1){valor= (inteiras+meias)*12;}
+
+    else{valor=inteiras*24+meias*12}
+
+    return valor;
+}
