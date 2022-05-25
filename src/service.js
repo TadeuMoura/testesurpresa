@@ -32,19 +32,27 @@ export function temperatura (x){
 }
 
 export function cor (a){
-    let msg =true;
-    if (a=='amarelo'||a=='amarela'||a=='vermelho'||a=='vermelha'||a=='azul'){msg=true;}
-    else{msg=false}
-
-    return msg;
+    a=a.toLowerCase();
+    return (a=='amarelo'||a=='amarela'||a=='vermelho'||a=='vermelha'||a=='azul')
 }
 
-export function cinema (inteiras,meias,dia){
-    let valor=0;
+export function cinema (inteiras,meias,dia,nacional){
+    if(nacional.toLowerCase()=='sim')
+    return (inteiras+meias)*5;
 
-    if(dia==1){valor= (inteiras+meias)*12;}
+    else if(dia.toLowerCase()=='sim')
+    return (inteiras+meias)*14.25;
 
-    else{valor=inteiras*24+meias*12}
-
-    return valor;
+    else return (inteiras*28,50)+(meias*14.25);
 }
+
+export function letra (texto, caractere){
+    let qtd = 0;
+    for (let letra of texto){
+        if(letra == caractere)
+        qtd++;
+    }
+    return qtd;
+}
+
+

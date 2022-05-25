@@ -1,4 +1,4 @@
-import {dobro,somar,media,tabuada,temperatura,cor,cinema} from './service.js'
+import {dobro,somar,media,tabuada,temperatura,cor,cinema, letra} from './service.js'
 import { Router } from 'express'
 const server = Router();
 
@@ -103,12 +103,22 @@ catch{
 
 server.post('/cinema' , (req, resp) =>{
     try{
-        const { valores: {inteiras,meias,dia} } = req.body;
-        const x = cinema(inteiras,meias,dia); 
-        resp.send({Valor: x})
+        const { inteiras,meias,dia,nacional} = req.body;
+        const x = cinema(inteiras,meias,dia,nacional); 
+        resp.send({Valor: x});
     }
     
     catch (err){
+        resp.status(404).send({erro: err.message})
+    }
+})
+
+server.get('/letra/:texto/:caractere' , (req,  resp) => {
+    try {
+        const {texto, caractere}= req.params;
+        const x = letra (texto, caractere);
+        resp.send({frequência: x});
+    } catch (err) {
         resp.status(404).send({erro: err.message})
     }
 })
