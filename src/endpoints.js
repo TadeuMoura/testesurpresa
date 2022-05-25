@@ -1,4 +1,4 @@
-import {dobro,somar,media,tabuada,temperatura,cor,cinema, letra} from './service.js'
+import {dobro,somar,media,tabuada,temperatura,cor,cinema, letra, maiornumero} from './service.js'
 import { Router } from 'express'
 const server = Router();
 
@@ -118,6 +118,16 @@ server.get('/letra/:texto/:caractere' , (req,  resp) => {
         const {texto, caractere}= req.params;
         const x = letra (texto, caractere);
         resp.send({frequência: x});
+    } catch (err) {
+        resp.status(404).send({erro: err.message})
+    }
+})
+
+server.post('/maiornumero' , (req, resp) => {
+    try {
+        const numeros = req.body;
+        const maior = maiornumero(numeros);
+        resp.send({maior: maior});
     } catch (err) {
         resp.status(404).send({erro: err.message})
     }

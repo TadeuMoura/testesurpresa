@@ -55,4 +55,12 @@ export function letra (texto, caractere){
     return qtd;
 }
 
-
+export function maiornumero(numeros){
+    let maior = Number.MIN_VALUE;
+    for (let item of numeros) {
+        if (item > maior)
+        maior = item;
+        
+    }
+    return maior;
+}
