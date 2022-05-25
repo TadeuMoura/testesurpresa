@@ -47,6 +47,7 @@ catch (err){
 })
 
 
+
 server.get('/media' , (req, resp) =>{
     try{
     const n1 = Number(req.query.n1);
@@ -58,6 +59,7 @@ server.get('/media' , (req, resp) =>{
 catch (err){resp.status(404).send({erro: err.message})
 }
 })
+
 
 
 server.get('/tabuada/:numero/:multiplicacao' , (req, resp) => {
@@ -72,6 +74,7 @@ server.get('/tabuada/:numero/:multiplicacao' , (req, resp) => {
 })
 
 
+
 server.get('/temperatura/:a' , (req, resp) =>{
     try{
 
@@ -84,6 +87,7 @@ server.get('/temperatura/:a' , (req, resp) =>{
         resp.status(404).send({erro: err.message})
     }
 })
+
 
 
 server.get('/cor/:a' , (req, resp) => {
@@ -113,6 +117,8 @@ server.post('/cinema' , (req, resp) =>{
     }
 })
 
+
+
 server.get('/letra/:texto/:caractere' , (req,  resp) => {
     try {
         const {texto, caractere}= req.params;
@@ -122,6 +128,8 @@ server.get('/letra/:texto/:caractere' , (req,  resp) => {
         resp.status(404).send({erro: err.message})
     }
 })
+
+
 
 server.post('/maiornumero' , (req, resp) => {
     try {
